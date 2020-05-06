@@ -22,8 +22,7 @@ public class Job implements Job_Read_Only{
     private int NumberOfAvilablePositions;
     private int ExprienceNeeded;
     private String CareerLevel;
-    public static ArrayList<Job> AllJobs;
-    public  ArrayList <Application> ApplicationList;
+    
 
     
 
@@ -37,7 +36,6 @@ public class Job implements Job_Read_Only{
         this.ExprienceNeeded = ExprienceNeeded;
         this.CareerLevel = CareerLevel;
         this.Adminapproval=false;
-        AllJobs.add(this);
 
     }
 
