@@ -23,6 +23,9 @@ public class Job implements Job_Read_Only{
     private int ExprienceNeeded;
     private String CareerLevel;
     public static ArrayList<Job> AllJobs;
+    public  ArrayList <Application>ApplicationList;
+
+    
 
     public Job(String title, String description, float salary, int workingHours, String JobCategory, int NumberOfAvilablePositions, int ExprienceNeeded, String CareerLevel) {
         this.title = title;
