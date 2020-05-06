@@ -9,7 +9,7 @@ package recruitmentsystem;
  *
  * @author mahmo
  */
-public class Application {
+public class Application extends ApplicationConsole {
     private int AppID;
     private boolean Approved;
     private float DesiredSalary;
@@ -64,9 +64,10 @@ public class Application {
     public void setWrokingHours(int WrokingHours) {
         this.WrokingHours = WrokingHours;
     }
-     
-    
-    
-    
-
+  
+    @Override
+    public void displayApp(){
+        System.out.println("Application:  " + "\nAppID=" + AppID + ".\nApproved: " + Approved + ".\nDesiredSalary: " + DesiredSalary +
+                ".\nYearsOfExperiance: " + YearsOfExperiance + ".\nJobType: " + JobType + "\nWrokingHours=" + WrokingHours + '.');
+    }
 }
