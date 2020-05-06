@@ -13,6 +13,8 @@ import java.util.ArrayList;
  */
 public class Job implements Job_Read_Only{
     
+    
+  
     private String title; 
     private String description;
     private float salary;
@@ -22,11 +24,9 @@ public class Job implements Job_Read_Only{
     private int NumberOfAvilablePositions;
     private int ExprienceNeeded;
     private String CareerLevel;
+    private int JobID;
     
-
-    
-
-    public Job(String title, String description, float salary, int workingHours, String JobCategory, int NumberOfAvilablePositions, int ExprienceNeeded, String CareerLevel) {
+    public Job(String title, String description, float salary, int workingHours, String JobCategory, int NumberOfAvilablePositions, int ExprienceNeeded, String CareerLevel, int JobID) {
         this.title = title;
         this.description = description;
         this.salary = salary;
@@ -36,11 +36,17 @@ public class Job implements Job_Read_Only{
         this.ExprienceNeeded = ExprienceNeeded;
         this.CareerLevel = CareerLevel;
         this.Adminapproval=false;
+        this.JobID=JobID;
 
     }
 
-  
-    
+    public int getJobID() {
+        return JobID;
+    }
+
+    public void setJobID(int JobID) {
+        this.JobID = JobID;
+    }
     
     public String getTitle() {
         return title;
