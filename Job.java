@@ -23,7 +23,7 @@ public class Job implements Job_Read_Only{
     private int ExprienceNeeded;
     private String CareerLevel;
     public static ArrayList<Job> AllJobs;
-    public  ArrayList <Application>ApplicationList;
+    public  ArrayList <Application> ApplicationList;
 
     
 
