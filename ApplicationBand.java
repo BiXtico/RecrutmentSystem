@@ -13,42 +13,49 @@ import java.util.ArrayList;
  */
 public class ApplicationBand extends ApplicationConsole {
 
-    private String FullName;
-    private String Education;
-    private int Telephone;
+    private int ID;
+    private String Type;
+    private String Groupdescription;
     
-    ArrayList<ApplicationConsole> Apps = new ArrayList();
+    private ArrayList<ApplicationConsole> Apps = new ArrayList();
 
-    public ApplicationBand(String FullName, String Education, int Telephone) {
-        this.FullName = FullName;
-        this.Education = Education;
-        this.Telephone = Telephone;
+    public ApplicationBand(int ID, String Type, String Groupdescription) {
+        this.ID = ID;
+        this.Type = Type;
+        this.Groupdescription = Groupdescription;
     }
 
-    public String getFullName() {
-        return FullName;
+    public String getGroupdescription() {
+        return Groupdescription;
     }
 
-    public void setFullName(String FullName) {
-        this.FullName = FullName;
+    public void setGroupdescription(String Groupdescription) {
+        this.Groupdescription = Groupdescription;
     }
 
-    public String getEducation() {
-        return Education;
+    public int getID() {
+        return ID;
     }
 
-    public void setEducation(String Education) {
-        this.Education = Education;
+    public ArrayList<ApplicationConsole> getApps() {
+        return Apps;
     }
 
-    public int getTelephone() {
-        return Telephone;
+    public void setApps(ArrayList<ApplicationConsole> Apps) {
+        this.Apps = Apps;
     }
 
-    public void setTelephone(int Telephone) {
-        this.Telephone = Telephone;
+    public void setID(int ID) {
+        this.ID = ID;
     }
-    
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String Type) {
+        this.Type = Type;
+    }
     @Override
     public void addApp(ApplicationConsole Appcon){
         Apps.add(Appcon);
@@ -58,8 +65,9 @@ public class ApplicationBand extends ApplicationConsole {
         Apps.remove(Appcon);
     }
     @Override
-    public ApplicationConsole getApp(int Appcon){
-        return Apps.get(Appcon);
+    public ApplicationConsole getApp(int bandid){
+        
+        return Apps.get(bandid);
     }
     
     public void DisplayApp(){

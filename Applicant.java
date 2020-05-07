@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ */ 
 package recruitmentsystem;
 
 import java.util.ArrayList;
@@ -11,13 +11,21 @@ import java.util.ArrayList;
  *
  * @author mahmo
  */
-public class Applicant {
-
+public class Applicant extends Account {
+    
     private String DOB;
     private ArrayList<ApplicationBand> ApplicationBands;
+    private String Address;
     private String jobStatus;
     private ArrayList<String> intrests;
     private ArrayList<String> Achivments;
+    private ArrayList<String> MyJobOffers;
+
+    public Applicant(String name, int ID, String email, String username, String password) {
+        super(name, ID, email, username, password);
+        ApplicationBands = new ArrayList();
+        SearchObj = new SearchJobTitle();
+    }
 
     public ArrayList<ApplicationBand> getApplicationBands() {
         return ApplicationBands;
@@ -59,61 +67,81 @@ public class Applicant {
         this.Achivments = Achivments;
     }
 
-    //Apply using the composite pattern -- by passing if the a var into the function that defines if the application is going to be added to 
-    // an existing Band or create a new one.
-    /*public void applyToJob(int APP_ID, float salary, int experience, String type, int workingHours, String jobTitle, String Company) {
-        Application A = new Application(APP_ID, salary, experience, type, workingHours, jobTitle, Company);
-        myApplication.add(A);
-         remember to edit in the class diagram
-         remmember to add CV in the declaration 
-    }*/
-    //apply using the stratagy pattern 
-    public void searchForJobs(String v) { //this is a GUI and will be retrived from database 
-
+    public String getAddress() {
+        return Address;
     }
 
-    public void respondToJobOffer(boolean respond, Job A) {
-        if (respond == true) {
-            jobStatus = "Employed";
-            // currentJob = A;
-        }
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 
+    public ArrayList<String> getMyJobOffers() {
+        return MyJobOffers;
+    }
+
+    public void setMyJobOffers(ArrayList<String> MyJobOffers) {
+        this.MyJobOffers = MyJobOffers;
+    }
+    
+    public void applyToJob(int APP_ID, boolean status, int experience, String proposal, int jobid,boolean newband,int bandid,String BandType,String description) {
+        Application A = new Application(APP_ID, status, experience, proposal, jobid);
+        CreateApplicationBand(bandid,BandType,description,A);
+      
+    }
+    public void applyToJob(int APP_ID, boolean status, int experience, String proposal, int jobid,int bandid) {
+        Application A = new Application(APP_ID, status, experience, proposal, jobid);
+        ApplicationBands.get(bandid).getApps().add(A);
+    }
+    
+     private void CreateApplicationBand(int id,String type,String description,ApplicationConsole ac) {
+        ApplicationConsole newband = new ApplicationBand(id,type,description);
+        newband.addApp(ac);
+        ApplicationBands.add((ApplicationBand) newband);
+    }
+     
+     public void CreateApplicationBand(int id,String type,String description) {
+        ApplicationConsole newband = new ApplicationBand(id,type,description);
+        ApplicationBands.add((ApplicationBand) newband);
+    }
+     public void CreateApplicationBand(int id,String type,String description,int BandID) {
+        ApplicationConsole newband = new ApplicationBand(id,type,description);
+        ApplicationBands.get(BandID).addApp(newband);
+    }
+     
+
+    public void respondToJobOffer(int messageid ,String Content,String senderinfo,String reciverinfo) {
+       this.getMessages().add(new Message(messageid,Content,senderinfo,reciverinfo));
+    }
+
+    
     public void postAchivment(String achievment) {
         Achivments.add(achievment);
     }
 
     //make this view application using the composite display app function. u can just display every thing about the app
-    /*public void viewApplicationStatus() {
-        String v;
-        for (int i = 0; i < myApplication.size(); i++) {
-            if (myApplication.get(i).isApproved() == true) {
-                v = "Accepted";
-            } else if (myApplication.get(i).isApproved() == false) {
-                v = "Rejected";
-            } else {
-                v = "Still Pending";
-            }
-           // System.out.println("Your Application at " + myApplication.get(i).getCompanyName() + " is " + v);
+    /*
+    public Application TrackApplication() {
+        for (ApplicationBand a:ApplicationBands) {
+            for(ApplicationConsole c:a.getApps()){
+                c.displayApp();
         }
-
+      }   
     }*/
+    
     public void addIntrist(String intrist) {
         intrests.add(intrist);
     }
 
-    //override of the user waiting gor it
-    public void EditProfile() {
-
-    }
-
-    public void CreateApplicationBand(String name, String Education, int telephone) {
-        ApplicationConsole newband = new ApplicationBand(name, Education, telephone);
-        ApplicationBands.add((ApplicationBand) newband);
-    }
-    //apply strategy pattern
-    public void Search(){
+    //do it directly to GUI with set values
+    /*@Override
+    public void EditProfile(string email,String username) {
         
+    }*/
+
+    //apply strategy pattern
+    @Override
+    public void Search(String s) {
+        Search(s);
     }
 
 }

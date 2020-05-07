@@ -11,12 +11,21 @@ package recruitmentsystem;
  */
 public class Application extends ApplicationConsole {
     private int AppID;
-    private boolean Approved;
-    private float DesiredSalary;
+    private boolean status;
     private int YearsOfExperiance;
-    private String JobType;
-    private int WrokingHours;
+    private String proposal;
+    private int JobID;
 
+    public Application(int AppID, boolean status, int YearsOfExperiance, String proposal, int JobID) {
+        this.AppID = AppID;
+        this.status = status;
+        this.YearsOfExperiance = YearsOfExperiance;
+        this.proposal = proposal;
+        this.JobID = JobID;
+        
+    }
+
+    @Override
     public int getAppID() {
         return AppID;
     }
@@ -25,22 +34,22 @@ public class Application extends ApplicationConsole {
         this.AppID = AppID;
     }
 
-    public boolean isApproved() {
-        return Approved;
+    public boolean getstatus() {
+        return status;
     }
 
-    public void setApproved(boolean Approved) {
-        this.Approved = Approved;
+    @Override
+    public void setstatus(boolean Approved) {
+        this.status = Approved;
     }
-
-    public float getDesiredSalary() {
-        return DesiredSalary;
+    
+    @Override
+     public  boolean checkjobid(int s){
+        if(this.JobID ==s)
+            return true;
+        else
+            return false;
     }
-
-    public void setDesiredSalary(float DesiredSalary) {
-        this.DesiredSalary = DesiredSalary;
-    }
-
     public int getYearsOfExperiance() {
         return YearsOfExperiance;
     }
@@ -49,25 +58,17 @@ public class Application extends ApplicationConsole {
         this.YearsOfExperiance = YearsOfExperiance;
     }
 
-    public String getJobType() {
-        return JobType;
+    public int getJobID() {
+        return JobID;
     }
 
-    public void setJobType(String JobType) {
-        this.JobType = JobType;
+    public void setJobID(int JobID) {
+        this.JobID = JobID;
     }
-
-    public int getWrokingHours() {
-        return WrokingHours;
-    }
-
-    public void setWrokingHours(int WrokingHours) {
-        this.WrokingHours = WrokingHours;
-    }
-  
+      
     @Override
-    public void displayApp(){
-        System.out.println("Application:  " + "\nAppID=" + AppID + ".\nApproved: " + Approved + ".\nDesiredSalary: " + DesiredSalary +
-                ".\nYearsOfExperiance: " + YearsOfExperiance + ".\nJobType: " + JobType + "\nWrokingHours=" + WrokingHours + '.');
+    public String displayApp(){
+        return("Application:  " + "\nAppID=" + AppID + ".\nApproved: " + status + ".\nProposal: " + proposal +
+                ".\nYearsOfExperiance: " + YearsOfExperiance  + '.');
     }
 }

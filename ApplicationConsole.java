@@ -19,7 +19,16 @@ public abstract class ApplicationConsole {
     public ApplicationConsole getApp(int Appcon){
         throw new UnsupportedOperationException();
     }
-    public void displayApp(){
+    public String displayApp(){
         throw new  UnsupportedOperationException();
+    }
+    public  boolean checkjobid(int s){
+        throw new  UnsupportedOperationException();
+    }
+     public  int getAppID(){
+        throw new  UnsupportedOperationException();
+    }
+     public void setstatus(boolean Approved) {
+         throw new  UnsupportedOperationException();
     }
 }
