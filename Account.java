@@ -19,18 +19,26 @@ public class Account {
     private String username;
     private String password;
     private boolean Banned;
-    private ArrayList<Message> Messages = new ArrayList();
+    private static ArrayList<Message> Messages = new ArrayList();
     public SearchStrategy SearchObj;
 
-    public void Search(String s){};
+    public String Search(String s){return "none";};
 
-    public Account(String name, int ID, String email, String username, String password) {
-        this.name = name;
+     public Account(int ID, String name, String email, String username, String password) {
         this.ID = ID;
+        this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.Banned = false;
+    }
+
+     public Account(int ID, String name, String email, String username, String password, boolean Banned) {
+        this.ID = ID;
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.Banned = Banned;
     }
 
     public ArrayList<Message> getMessages() {

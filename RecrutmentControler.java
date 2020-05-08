@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class RecrutmentControler {
    private static RecrutmentManger manger = new RecrutmentManger();
+   private static RecrutmentControler RC = new RecrutmentControler();
    private static ArrayList<Applicant> Applicants = new ArrayList();
    private static ArrayList<Employer> Employers = new ArrayList();
 
@@ -40,6 +41,14 @@ public class RecrutmentControler {
 
     public static void setEmployers(ArrayList<Employer> Employers) {
         RecrutmentControler.Employers = Employers;
+    }
+
+    public static RecrutmentControler getRC() {
+        return RC;
+    }
+
+    public static void setRC(RecrutmentControler RC) {
+        RecrutmentControler.RC = RC;
     }
    
    

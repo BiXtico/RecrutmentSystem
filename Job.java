@@ -11,9 +11,9 @@ import java.util.ArrayList;
  *
  * @author mahmo
  */
-public class Job implements Job_Read_Only{
-    
-    private String title; 
+public class Job implements Job_Read_Only {
+
+    private String title;
     private String description;
     private float salary;
     private int workingHours;
@@ -22,11 +22,10 @@ public class Job implements Job_Read_Only{
     private int NumberOfAvilablePositions;
     private int ExprienceNeeded;
     private String CareerLevel;
-    
+    private int JobID;
+    private int EmpID;
 
-    
-
-    public Job(String title, String description, float salary, int workingHours, String JobCategory, int NumberOfAvilablePositions, int ExprienceNeeded, String CareerLevel) {
+    public Job(String title, String description, float salary, int workingHours, String JobCategory, int NumberOfAvilablePositions, int ExprienceNeeded, String CareerLevel, int JobID) {
         this.title = title;
         this.description = description;
         this.salary = salary;
@@ -35,13 +34,31 @@ public class Job implements Job_Read_Only{
         this.NumberOfAvilablePositions = NumberOfAvilablePositions;
         this.ExprienceNeeded = ExprienceNeeded;
         this.CareerLevel = CareerLevel;
-        this.Adminapproval=false;
+        this.Adminapproval = false;
+        this.JobID = JobID;
 
     }
+       public Job(int JobID,String title, String description, float salary, int workingHours, String JobCategory, int NumberOfAvilablePositions, int ExprienceNeeded, String CareerLevel, int EmpID) {
+        this.title = title;
+        this.description = description;
+        this.salary = salary;
+        this.workingHours = workingHours;
+        this.JobCategory = JobCategory;
+        this.NumberOfAvilablePositions = NumberOfAvilablePositions;
+        this.ExprienceNeeded = ExprienceNeeded;
+        this.CareerLevel = CareerLevel;
+        this.JobID = JobID;
+        this.EmpID = EmpID;
+    }
+       
+    public int getJobID() {
+        return JobID;
+    }
 
-  
-    
-    
+    public void setJobID(int JobID) {
+        this.JobID = JobID;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -114,6 +131,19 @@ public class Job implements Job_Read_Only{
         this.CareerLevel = CareerLevel;
     }
 
+    public int getEmpID() {
+        return EmpID;
+    }
+
+    public void setEmpID(int EmpID) {
+        this.EmpID = EmpID;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("Job title : " + title + "\nDescription : " + description + "\nSalary : " + salary + "\nWorking Hours : " + workingHours + "\nJob Category : " + JobCategory + "\nAvilable Positions : " + NumberOfAvilablePositions + "\nExprience Needed : ") + ExprienceNeeded + "\nCareer Level : " + CareerLevel + "."; 
+        
+    }
    
 //public void DestroyJob(){}
 }

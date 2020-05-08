@@ -12,17 +12,21 @@ package recruitmentsystem;
 public class Message {
     private int ID;
     private String Content;
-    private String Senderinfo;
-     private String Recieverinfo;
+    private String EmployerInfo;
+     private String ApplicantInfo;
 
-    public Message(int ID, String Content, String Senderinfo, String Recieverinfo) {
-        this.ID = ID;
+      public Message(String Content, String EmployerInfo, String ApplicantInfo) {
         this.Content = Content;
-        this.Senderinfo = Senderinfo;
-        this.Recieverinfo = Recieverinfo;
+        this.EmployerInfo = EmployerInfo;
+        this.ApplicantInfo = ApplicantInfo;
     }
 
-  
+    public Message(int ID, String Content, String EmployerInfo, String ApplicantInfo) {
+        this.ID = ID;
+        this.Content = Content;
+        this.EmployerInfo = EmployerInfo;
+        this.ApplicantInfo = ApplicantInfo;
+    }
 
     public int getID() {
         return ID;
@@ -39,22 +43,24 @@ public class Message {
     public void setContent(String Content) {
         this.Content = Content;
     }
+
+    public String getEmployerInfo() {
+        return EmployerInfo;
+    }
+
+    public void setEmployerInfo(String EmployerInfo) {
+        this.EmployerInfo = EmployerInfo;
+    }
+
+    public String getApplicantInfo() {
+        return ApplicantInfo;
+    }
+
+    public void setApplicantInfo(String ApplicantInfo) {
+        this.ApplicantInfo = ApplicantInfo;
+    }
     
-    public String getSenderinfo() {
-        return Senderinfo;
-    }
-
-    public void setSenderinfo(String Senderinfo) {
-        this.Senderinfo = Senderinfo;
-    }
-
-    public String getRecieverinfo() {
-        return Recieverinfo;
-    }
-
-    public void setRecieverinfo(String Recieverinfo) {
-        this.Recieverinfo = Recieverinfo;
-    }
+   
     
 
 }

@@ -22,7 +22,7 @@ public class RecrutmentManger {
     private final String dbName = "perfectrecruit";
 
     private Connection con;
-
+/*
     public RecrutmentManger() {
         try {
             //Loading the jdbc driver
@@ -237,5 +237,5 @@ public class RecrutmentManger {
             System.err.println("DATABASE QUERY ERROR: " + e.toString());
         }
         return result;
-    }
+    }*/
 }

@@ -29,7 +29,7 @@ public class ApplicationBand extends ApplicationConsole {
         return Groupdescription;
     }
 
-    public void setGroupdescription(String Groupdescription) {
+    public void setGroupdescription(String Groupdescription) { 
         this.Groupdescription = Groupdescription;
     }
 
@@ -72,7 +72,7 @@ public class ApplicationBand extends ApplicationConsole {
     
     public void DisplayApp(){
         for(ApplicationConsole A: Apps){
-            A.displayApp();
+            System.out.println(A.displayApp());
         }
     }
 

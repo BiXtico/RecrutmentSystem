@@ -21,11 +21,15 @@ public class Applicant extends Account {
     private ArrayList<String> Achivments;
     private ArrayList<String> MyJobOffers;
 
-    public Applicant(String name, int ID, String email, String username, String password) {
-        super(name, ID, email, username, password);
+    public Applicant(int ID, String name, String email, String username, String password, String DOB, String jobStatus, String Address) {
+        super(ID, name, email, username, password);
+        this.DOB = DOB;
+        this.jobStatus = jobStatus;
+        this.Address = Address;
         ApplicationBands = new ArrayList();
         SearchObj = new SearchJobTitle();
     }
+
 
     public ArrayList<ApplicationBand> getApplicationBands() {
         return ApplicationBands;
@@ -83,7 +87,7 @@ public class Applicant extends Account {
         this.MyJobOffers = MyJobOffers;
     }
     
-    public void applyToJob(int APP_ID, boolean status, int experience, String proposal, int jobid,boolean newband,int bandid,String BandType,String description) {
+    public void applyToJob(int APP_ID, boolean status, int experience, String proposal, int jobid,int bandid,String BandType,String description) {
         Application A = new Application(APP_ID, status, experience, proposal, jobid);
         CreateApplicationBand(bandid,BandType,description,A);
       
@@ -140,8 +144,8 @@ public class Applicant extends Account {
 
     //apply strategy pattern
     @Override
-    public void Search(String s) {
-        Search(s);
+    public String Search(String s) {
+        return SearchObj.search(s);
     }
 
 }
